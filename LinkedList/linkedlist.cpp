@@ -136,6 +136,7 @@ int main(){
 
     cout<<"Length: "<<list.length()<<endl;
 
+    cout<<"Deleting element..."<<endl;
     list.Delete(1);
     list.Display();
 
