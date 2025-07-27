@@ -68,6 +68,6 @@ int main(){
     queue.display();
     cout<<"Front value:"<<queue.peek()<<endl;
     queue.dequeue();
-       queue.display();
+    queue.display();
 
 }
