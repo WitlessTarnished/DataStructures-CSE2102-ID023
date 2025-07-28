@@ -8,7 +8,6 @@ private:
 
 public:
     HashTable() {
-        // Initialize all slots to -1 (empty)
         for (int i = 0; i < TABLE_SIZE; i++)
             table[i] = -1;
     }
@@ -17,7 +16,6 @@ public:
         return key % TABLE_SIZE;
     }
 
-    // Insert using quadratic probing
     void insert(int key) {
         int index = hashFunction(key);
         int i = 0;
@@ -35,7 +33,6 @@ public:
         cout << "Hash table is full, cannot insert " << key << endl;
     }
 
-    // Search using quadratic probing
     bool search(int key) {
         int index = hashFunction(key);
         int i = 0;
@@ -55,7 +52,6 @@ public:
         return false;
     }
 
-    // Delete using quadratic probing
     void remove(int key) {
         int index = hashFunction(key);
         int i = 0;
@@ -67,7 +63,7 @@ public:
                 break;
 
             if (table[newIndex] == key) {
-                table[newIndex] = -2; // Mark as deleted
+                table[newIndex] = -2; 
                 cout << "Key " << key << " deleted.\n";
                 return;
             }
@@ -78,7 +74,6 @@ public:
         cout << "Key " << key << " not found.\n";
     }
 
-    // Display the hash table
     void display() {
         cout << "Hash Table:\n";
         for (int i = 0; i < TABLE_SIZE; i++) {
@@ -92,7 +87,6 @@ public:
     }
 };
 
-// Driver Code
 int main() {
     HashTable ht;
 

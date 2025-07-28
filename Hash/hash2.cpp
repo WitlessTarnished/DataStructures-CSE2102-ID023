@@ -8,23 +8,19 @@ private:
 
 public:
     HashTable() {
-        // Initialize all slots as empty (-1 means empty)
         for (int i = 0; i < TABLE_SIZE; i++) {
             table[i] = -1;
         }
     }
 
-    // Hash function: simple modulo
     int hashFunction(int key) {
         return key % TABLE_SIZE;
     }
 
-    // Insert using linear probing
     void insert(int key) {
         int index = hashFunction(key);
         int startIndex = index;
 
-        // Linearly probe to find an empty slot
         while (table[index] != -1) {
             index = (index + 1) % TABLE_SIZE;
             if (index == startIndex) {
@@ -35,7 +31,6 @@ public:
         table[index] = key;
     }
 
-    // Search for a key
     bool search(int key) {
         int index = hashFunction(key);
         int startIndex = index;
@@ -50,14 +45,12 @@ public:
         return false;
     }
 
-    // Delete a key
     void remove(int key) {
         int index = hashFunction(key);
         int startIndex = index;
 
         while (table[index] != -1) {
             if (table[index] == key) {
-                table[index] = -2; // Use -2 to mark as "deleted"
                 cout << "Key " << key << " deleted.\n";
                 return;
             }
@@ -69,7 +62,6 @@ public:
         cout << "Key " << key << " not found.\n";
     }
 
-    // Display the table
     void display() {
         cout << "Hash Table:\n";
         for (int i = 0; i < TABLE_SIZE; i++) {
@@ -82,8 +74,6 @@ public:
         }
     }
 };
-
-// Driver Code
 int main() {
     HashTable ht;
 
